@@ -14,24 +14,29 @@
     
 </style>
 
-<body>
+<body class="bg-img">
     <nav>
         <div class="navigation">
             <div class="logo col">
                 <a href="/">Logo</a>
             </div>
             <div class="search">
+                <form action="">
                 <input type="textarea" name="search" id="search" placeholder="Search places....">
                 <button>Search</button>
+            </form>
             </div>
             <div class="signform">
                 <% if(!session) {%>
                     <div class="signindiv">
+                        <form action="">
                         <input type="textarea" name="email" id="mail" placeholder="Enter Email...">
                         <input type="textarea" name="search" id="search" placeholder="Enter Password....">
                         <button class="signin">Sign in</button>
+                    </form>
                     </div>
-                    <button id="signup" class="signup">Sign up</button>
+                    <!-- <button id="signup" class="signup">Sign up</button> -->
+                    <a href="#" class="signup" id="signup">Sign up</a>
 
 
                     <% } else{ %>
@@ -42,10 +47,47 @@
     </nav>
     <div id="signupcontent">
         <br>
+        <h2 style="text-align: left; color: white;">Sign up</h2>
+        <form action="">
+        <input type="textarea" name="email" id="mail" placeholder="Enter Email..."> <br>
+        <input type="textarea" name="search" id="search" placeholder="Enter Password...."> <br>
         <input type="textarea" name="email" id="mail" placeholder="Enter Email..."> <br>
         <input type="textarea" name="search" id="search" placeholder="Enter Password...."> <br>
         <button class="signin">Sign up</button>
+    </form>
     </div>
+
+    <!-- maincontent -->
+    <div class="posting">
+
+      <% for(let id = 0; id < file; id++){ %> 
+
+
+        <div class="card">
+            <img src="https://th.bing.com/th/id/OIP.4b02TNYh6agTq9cRS-OikgHaDv?pid=ImgDet&rs=1" alt="John" style="width:100%">
+            <div class="description">
+            <h1>Price</h1>
+            <h3>Name</h3>
+         
+            <pclass="title">Place</p>
+            <p>Addres</p>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+            <p>Date</p>
+        </div>
+            <p><button name="<%= id %> ">View</button></p>
+         
+        </div>
+          <% } %> 
+
+
+    </div>
+
+    <div class="map">
+
+    </div>
+
+
+
 </body>
 
 
