@@ -8,21 +8,24 @@
     <title>Landing Page</title>
 </head>
 <style>
-    body{
+    body {
         padding: 0;
         margin: 0;
     }
-    .navigation{
+
+    .navigation {
         display: flex;
         justify-content: space-between;
         margin: 0 3%;
         padding: 1rem 0;
         align-items: center;
     }
-    nav{
+
+    nav {
         background-color: #343a40;
     }
-    .navigation button{
+
+    .navigation button {
         font-size: 1rem;
         color: #829099;
         background-color: white;
@@ -33,7 +36,8 @@
         transition-duration: 0.4s;
         cursor: pointer;
     }
-    .navigation input{
+
+    .navigation input {
         font-size: 1rem;
         color: #829099;
         background-color: white;
@@ -43,27 +47,31 @@
         text-decoration: none;
         transition-duration: 0.4s;
     }
-  
-    .navigation button:hover{
+
+    .navigation button:hover {
         background-color: #555555;
         color: white;
     }
-    .navigation .signform input{
+
+    .navigation .signform input {
         width: 8rem;
     }
-    .navigation .signform{
-       display: flex;
-       gap: 0.25rem;
+
+    .navigation .signform {
+        display: flex;
+        gap: 0.25rem;
     }
-    .navigation a{
+
+    .navigation a {
         text-decoration: none;
         color: #eff7fb;
         font-size: 1.5rem;
     }
-    .navigation a:hover{
+
+    .navigation a:hover {
         color: rgba(238, 255, 0, 0.836);
         transition-duration: 0.75s;
-     
+
     }
 </style>
 
@@ -78,11 +86,14 @@
                 <button>Search</button>
             </div>
             <div class="signform">
-                <input type="textarea" name="email" id="mail" placeholder="Enter Email...">
-                <input type="textarea" name="search" id="search" placeholder="Enter Password....">
-                <button class="signin">Sign in</button>
-                <button class="signup">Sign up</button>
-                <!-- <button class="logout">Log out</button> -->
+                <% if(!session) {%>
+                    <input type="textarea" name="email" id="mail" placeholder="Enter Email...">
+                    <input type="textarea" name="search" id="search" placeholder="Enter Password....">
+                    <button class="signin">Sign in</button>
+                    <button class="signup">Sign up</button>
+                    <% } else{ %>
+                        <button class="logout">Log out</button>
+                        <% } %>
             </div>
         </div>
     </nav>
