@@ -5,80 +5,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/jquery.js"></script>
+    <link rel="stylesheet" href="/style.css">
     <title>Landing Page</title>
 </head>
 <style>
-    body {
-        padding: 0;
-        margin: 0;
-    }
-
-    .navigation {
-        display: flex;
-        justify-content: space-between;
-        margin: 0 3%;
-        padding: 1rem 0;
-        align-items: center;
-    }
-
-    nav {
-        background-color: #343a40;
-    }
-
-    .navigation button {
-        font-size: 1rem;
-        color: #829099;
-        background-color: white;
-        border: 2px solid #555555;
-        border: none;
-        padding: 10px 22px;
-        text-decoration: none;
-        transition-duration: 0.4s;
-        cursor: pointer;
-    }
-
-    .navigation input {
-        font-size: 1rem;
-        color: #829099;
-        background-color: white;
-        border: 2px solid #555555;
-        border: none;
-        padding: 10px 15px;
-        text-decoration: none;
-        transition-duration: 0.4s;
-    }
-
-    .navigation button:hover {
-        background-color: #555555;
-        color: white;
-    }
-
-    .navigation .signform input {
-        width: 8rem;
-    }
-
-    .navigation .signform {
-        display: flex;
-        gap: 0.25rem;
-    }
-
-    .navigation a {
-        text-decoration: none;
-        color: #eff7fb;
-        font-size: 1.5rem;
-    }
-
-    .navigation a:hover {
-        color: rgba(238, 255, 0, 0.836);
-        transition-duration: 0.75s;
-
-    }
+    
 </style>
 
 <body>
     <nav>
         <div class="navigation">
-            <div class="logo">
+            <div class="logo col">
                 <a href="/">Logo</a>
             </div>
             <div class="search">
@@ -87,16 +26,27 @@
             </div>
             <div class="signform">
                 <% if(!session) {%>
-                    <input type="textarea" name="email" id="mail" placeholder="Enter Email...">
-                    <input type="textarea" name="search" id="search" placeholder="Enter Password....">
-                    <button class="signin">Sign in</button>
-                    <button class="signup">Sign up</button>
+                    <div class="signindiv">
+                        <input type="textarea" name="email" id="mail" placeholder="Enter Email...">
+                        <input type="textarea" name="search" id="search" placeholder="Enter Password....">
+                        <button class="signin">Sign in</button>
+                    </div>
+                    <button id="signup" class="signup">Sign up</button>
+
+
                     <% } else{ %>
                         <button class="logout">Log out</button>
                         <% } %>
             </div>
         </div>
     </nav>
+    <div id="signupcontent">
+        <br>
+        <input type="textarea" name="email" id="mail" placeholder="Enter Email..."> <br>
+        <input type="textarea" name="search" id="search" placeholder="Enter Password...."> <br>
+        <button class="signin">Sign up</button>
+    </div>
 </body>
+
 
 </html>
