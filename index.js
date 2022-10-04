@@ -12,7 +12,7 @@ app.set('views',path.join(__dirname, '/views'));
 //route for the homepage
 app.get('/', (req, res)=>{
     const session = false ;
-    const file = 20 ;
+    const file = 5 ;
     res.render('index', {session,file});
    })
 

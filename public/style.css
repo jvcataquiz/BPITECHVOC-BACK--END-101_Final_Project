@@ -1,4 +1,10 @@
-body {
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
     padding: 0;
     margin: 0;
 }
@@ -116,7 +122,7 @@ nav {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 1rem;
-    
+    font-family: Arial, Helvetica, sans-serif;
   }
 
   .card {
@@ -128,12 +134,24 @@ nav {
     text-align: center; */
     width: 24%;
     position: relative;
-    line-height: .75;
+    line-height: 1.2;
+    position: relative;
   }
-
+  .card img{
+    object-fit: contain;
+  }
+.img{
+    width: 100%;
+    height: 12rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    }
   .title {
     color: grey;
     font-size: 18px;
+    margin-bottom: 1rem;
   }
   
   .card button {
@@ -160,4 +178,37 @@ nav {
   }
   .description{
     margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  .dateposted{
+    margin-bottom: 1rem;
+  }
+  .short p{
+    text-align: justify;
+    line-height: 1.2;
+    
+    
+  }
+  .short
+  {
+    width: 100%;
+    height: 5rem;
+    word-wrap: break-word;
+    margin-bottom: 2rem;
+  }
+  .address{
+    text-align: justify;
+    line-height: 1.2;
+    width: 100%;
+    height: 3rem;
+    word-wrap: break-word;
+    margin-bottom: 1rem;
+    /* overflow-y: scroll; */
+  }
+  .description h2, .description h3{
+font-weight: 800;
+  }
+  .row{
+    display: flex;
+    justify-content: space-between;
   }
