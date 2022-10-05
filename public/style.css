@@ -52,7 +52,7 @@ nav {
 }
 
 .navigation .signform input {
-    width: 8rem;
+    width: 10rem;
 }
 
 .navigation .signform {
@@ -81,6 +81,7 @@ nav {
     height: auto;
     padding: 0 1rem;
     text-align: center;
+    z-index: 100;
    
 
 }
@@ -154,7 +155,7 @@ nav {
     margin-bottom: 1rem;
   }
   
-  .card button {
+  .card a {
     border: none;
     outline: 0;
     display: inline-block;
@@ -164,16 +165,13 @@ nav {
     /* text-align: center; */
     cursor: pointer;
     width: 100%;
+    text-align: center;
+    text-decoration: none;
     font-size: 18px;
   }
   
-  .card a {
-    text-decoration: none;
-    font-size: 22px;
-    color: black;
-  }
   
-  .card button:hover, .card a:hover {
+  .card a:hover {
     opacity: 0.7;
   }
   .description{
