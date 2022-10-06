@@ -15,48 +15,9 @@
 </style>
 
 <body class="bg-img">
-    <nav>
-        <div class="navigation">
-            <div class="logo col">
-                <a href="/">Logo</a>
-            </div>
-            <div class="search">
-                <form action="">
-                    <input type="textarea" name="search" id="search" placeholder="Search places....">
-                    <button>Search</button>
-                </form>
-            </div>
-            <div class="signform">
-                <% if(!session) {%>
-                    <div class="signindiv">
-                        <form action="">
-                            <input type="textarea" name="email" id="mail" placeholder="Enter Email...">
-                            <input type="textarea" name="search" id="search" placeholder="Enter Password....">
-                            <button class="signin">Sign in</button>
-                        </form>
-                    </div>
-                    <!-- <button id="signup" class="signup">Sign up</button> -->
-                    <a href="#" class="signup" id="signup">Sign up</a>
-
-
-                    <% } else{ %>
-                        <button class="logout">Log out</button>
-                        <% } %>
-            </div>
-        </div>
-    </nav>
-    <div id="signupcontent">
-        <br>
-        <h2 style="text-align: left; color: white;">Sign up</h2>
-        <form action="">
-            <input type="textarea" name="email" id="mail" placeholder="Enter Email..."> <br>
-            <input type="textarea" name="search" id="search" placeholder="Enter Password...."> <br>
-            <input type="textarea" name="email" id="mail" placeholder="Enter Email..."> <br>
-            <input type="textarea" name="search" id="search" placeholder="Enter Password...."> <br>
-            <button class="signin">Sign up</button>
-        </form>
-    </div>
-
+   
+    
+<%- include('navbar') %> 
     <!-- maincontent -->
     <div class="posting">
 
@@ -69,7 +30,7 @@
                 </div>
                 <div class="description">
                     <h2> ₱ <%= post.price %> </h2>
-                    <h3 class="title"><%= post.name %> </h3>
+                    <h6 class="title"><%= post.name %> </h6>
                     <div class="address">
                         <p><%= post.address %> </p>
                     </div>

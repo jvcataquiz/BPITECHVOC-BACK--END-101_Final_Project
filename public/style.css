@@ -203,8 +203,8 @@ nav {
     margin-bottom: 1rem;
     /* overflow-y: scroll; */
   }
-  .description h2, .description h3{
-font-weight: 800;
+  .description h2, .description h6{
+font-weight: 700;
   }
   .row{
     display: flex;

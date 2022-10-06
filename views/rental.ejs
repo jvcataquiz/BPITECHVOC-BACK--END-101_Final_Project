@@ -1,15 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   
+    <script src="/jquery.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <title>Rental Page</title>
 </head>
-<body >
-    <% if(session) {%>
-        <h1>Welcome to rental page <%= id %> </h1>
-    <% } %>
+<style>
+    .rental {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    #map {
+        height: 400px;
+        /* The height is 400 pixels */
+        width: 100%;
+        /* The width is the width of the web page */
+    }
+</style>
+
+<body>
+    <%- include('navbar') %>
+        <h1>Welcome to rental page <%= id %>
+        </h1>
+        <div class="rental">
+            <div class="apartment-info">
+
+                <div class="img"
+                    style="background-image: url('https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg?cs=srgb&dl=pexels-expect-best-323705.jpg&fm=jpg');">
+
+                </div>
+                <div class="description">
+                    <h2> Price </h2>
+                    <h6 class="title">Name<h6>
+                            <div class="address">
+                                <p>Address </p>
+                            </div>
+                            <div class="short">
+                                <strong>Description:</strong>
+                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                    Ipsum
+                                    has been the industry's standard dummy text ever since the 150 </p>
+                            </div>
+                            <div class="row">
+                                <p class="dateposted">Date </p>
+                                <p class="title reviews">150 Reviews</p>
+                            </div>
+                </div>
+                <p>
+                    
+                    <input type="text" id="lat" value="<%=lat%>" hidden>
+
+                    <input type="text" id="long" value="<%=long%>" hidden>
+                    
+
+                    <a href="/" id="view">Back</a>
+
+            </div>
+
+            <div id="map"></div>
+            <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
+            defer></script>
+        </div>
+        <script type="text/javascript">
+          
+            function initMap() {
+                var options = {
+                    zoom: 15,
+                    center: { lat: parseFloat(document.getElementById('lat').value), lng: parseFloat(document.getElementById('long').value)  } //Coordinates of New York 
+                }
+                var loc = document.getElementById('map');
+                var map = new google.maps.Map(loc, options);
+                var marker = new google.maps.Marker({
+                    position: { lat: parseFloat(document.getElementById('lat').value), lng: parseFloat(document.getElementById('long').value) }, // Brooklyn Coordinates
+                    map: map, //Map that we need to add
+                    icon: 'https://img.icons8.com/fluent/48/000000/marker-storm.png',
+                    draggable: false,
+                    information: information
+                });
+
+                var information = new google.maps.InfoWindow({
+                    content: '<h4>Manila</h4>'
+                });
+
+                information.open(loc, marker);
+
+
+            }
+        </script>
+
 </body>
 
 </html>

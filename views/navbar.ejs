@@ -1,0 +1,43 @@
+<nav>
+    <div class="navigation">
+        <div class="logo col">
+            <a href="/">Logo</a>
+        </div>
+        <div class="search">
+            <form action="">
+                <input type="textarea" name="search" id="search" placeholder="Search places....">
+                <button>Search</button>
+            </form>
+        </div>
+        <div class="signform">
+            <% if(!session) {%>
+                <div class="signindiv">
+                    <form action="">
+                        <input type="textarea" name="email" id="mail" placeholder="Enter Email...">
+                        <input type="textarea" name="search" id="search" placeholder="Enter Password....">
+                        <button class="signin">Sign in</button>
+                    </form>
+                </div>
+                <!-- <button id="signup" class="signup">Sign up</button> -->
+                <a href="#" class="signup" id="signup">Sign up</a>
+
+
+                <% } else{ %>
+                    <a href="/profile">Profile</a>
+                    <button class="logout">Log out</button>
+                    <% } %>
+        </div>
+    </div>
+</nav>
+
+<div id="signupcontent">
+    <br>
+    <h2 style="text-align: left; color: white;">Sign up</h2>
+    <form action="">
+        <input type="textarea" name="email" id="mail" placeholder="Enter Email..."> <br>
+        <input type="textarea" name="search" id="search" placeholder="Enter Password...."> <br>
+        <input type="textarea" name="email" id="mail" placeholder="Enter Email..."> <br>
+        <input type="textarea" name="search" id="search" placeholder="Enter Password...."> <br>
+        <button class="signin">Sign up</button>
+    </form>
+</div>
