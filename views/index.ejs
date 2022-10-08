@@ -45,12 +45,9 @@
                     </div>
                 </div>
                 <p>
-                    <% if(!session) {%>
-                  
-                        <a href="/"  id="view" onclick="notsignin()">View</a>
-                        <% } else{ %>
+                    
                             <a href="/rental/<%= post.id%>"   id="view" >View</a>
-                            <% } %>
+                          
    
             </div>
 
@@ -73,9 +70,6 @@
 <script>
     function notsignin() {
             alert("Please sign in"); 
-    }
-    function signin() {
-            alert("Sign in"); 
     }
     </script>
     

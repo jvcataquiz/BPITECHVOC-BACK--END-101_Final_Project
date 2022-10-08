@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname, '/public')));
 app.set('views', path.join(__dirname, '/views'));
 
 //session
-const session = false;
+const session = true;
 
 //route for the homepage
 app.get('/', (req, res) => {
@@ -28,15 +28,12 @@ app.get('/try', (req, res) => {
 //route for the rental page
 app.get('/rental/:id', (req, res) => {
     const { id } = req.params;
-    const lat =  14.5243;
+    const lat = 14.5243;
     const long = 121.0792;
-    if (session) {
-       
-        res.render('rental', { session, id , lat, long});
-    }
-    else {
-        res.redirect('/');
-    }
+
+
+    res.render('rental', { session, id, lat, long });
+
 
 })
 

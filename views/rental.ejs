@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-   
+
     <script src="/jquery.js"></script>
     <link rel="stylesheet" href="/style.css">
     <title>Rental Page</title>
@@ -15,24 +15,68 @@
     .rental {
         display: flex;
         justify-content: space-around;
-        align-items: center;
+        /* align-items: center; */
+        gap: 2rem;
+        margin: 0 3%;
+    }
+
+    .line {
+        line-height: 2.1;
+
+    }
+
+    .line p {
+        font-size: 1.15rem;
+    }
+
+    .back {
+        margin: 1rem 3%;
     }
 
     #map {
-        height: 400px;
+        height: 540px;
         /* The height is 400 pixels */
-        width: 100%;
+        width: 60%;
         /* The width is the width of the web page */
     }
-    .search{
+
+    .search {
         display: none;
+    }
+
+    .person-review {
+        text-indent: 10px;
+    }
+    .apartment-info{
+        overflow-y: scroll;
+
+    height: 540px;
+
+    }
+    .addreview form {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
+    .addreview button {
+        font-size: 1.25rem;
+    }
+
+    .addreview input {
+        width: 100%;
+        font-size: 1.25rem;
     }
 </style>
 
 <body>
     <%- include('navbar') %>
-        <h1>Welcome to rental page <%= id %>
-        </h1>
+        <div class="back">
+            <h2>
+                <a href="/" id="view">Back</a>
+            </h2>
+        </div>
+
         <div class="rental">
             <div class="apartment-info">
 
@@ -40,45 +84,87 @@
                     style="background-image: url('https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg?cs=srgb&dl=pexels-expect-best-323705.jpg&fm=jpg');">
 
                 </div>
-                <div class="description">
-                    <h2> Price </h2>
-                    <h6 class="title">Name<h6>
-                            <div class="address">
-                                <p>Address </p>
-                            </div>
-                            <div class="short">
-                                <strong>Description:</strong>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                    Ipsum
-                                    has been the industry's standard dummy text ever since the 150 </p>
-                            </div>
-                            <div class="row">
-                                <p class="dateposted">Date </p>
-                                <p class="title reviews">150 Reviews</p>
-                            </div>
+                <div class="description ">
+                    <div class="line">
+                        <h1> Price </h1>
+                        <h2 class="tit">Name</h2>
+                        <div class="add">
+                            <p>Address </p>
+                        </div>
+                        <div class="des">
+                            <strong>Description:</strong>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                                Ipsum
+                                has been the industry's standard dummy text ever since the 150 </p>
+                        </div>
+                        <div class="row">
+                            <p class="dateposted">Date </p>
+                            <p class="title reviews">150 Reviews</p>
+
+
+                            <input type="text" id="lat" value="<%=lat%>" hidden>
+
+                            <input type="text" id="long" value="<%=long%>" hidden>
+                        </div>
+                    </div>
+                    <hr>
+                    <br>
+                    <h3><strong>Reviews:</strong></h3>
+                    <div class="addreview">
+
+                        <% if(session) {%>
+                            <form action="">
+                                <input type="texarea" name="review" id="review">
+                                <button>send</button>
+                            </form>
+
+                            <% } %>
+                    </div>
+                    <br>
+                    <div class="commnets">
+
+                        <p class="person-review">
+                            What place?
+                        </p>
+                        <hr>
+                        <p class="person-review">
+                            What place?
+                        </p>
+                        <hr>
+                        <p class="person-review">
+                            What place?
+                        </p>
+                        <hr>
+                        <p class="person-review">
+                            What place?
+                        </p>
+                        <hr>
+
+
+                        <br>
+
+
+                    </div>
                 </div>
                 <p>
-                    
-                    <input type="text" id="lat" value="<%=lat%>" hidden>
 
-                    <input type="text" id="long" value="<%=long%>" hidden>
-                    
 
-                    <a href="/" id="view">Back</a>
+
+
 
             </div>
 
             <div id="map"></div>
             <script
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
-            defer></script>
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
+                defer></script>
         </div>
         <script type="text/javascript">
-          
+
             function initMap() {
                 var options = {
                     zoom: 15,
-                    center: { lat: parseFloat(document.getElementById('lat').value), lng: parseFloat(document.getElementById('long').value)  } //Coordinates of New York 
+                    center: { lat: parseFloat(document.getElementById('lat').value), lng: parseFloat(document.getElementById('long').value) } //Coordinates of New York 
                 }
                 var loc = document.getElementById('map');
                 var map = new google.maps.Map(loc, options);

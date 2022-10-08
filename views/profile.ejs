@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,24 +9,156 @@
     <script src="/jquery.js"></script>
     <link rel="stylesheet" href="/style.css">
     <title>Name of Profile</title>
-    <style>.search{
-        display: none;
-    }</style>
+    <style>
+        .search {
+            display: none;
+        }
+
+        .user {
+            display: flex;
+            justify-content: space-around;
+            margin: 0 3%;
+            position: relative;
+        }
+        .userinfoupdate{
+            margin-top: 3rem;
+        }
+        .updateinfo {
+            line-height: 2.5;
+        }
+        
+        .updateinfo input {
+            font-size: 1.25rem;
+            margin: 0.75rem 0;
+        }
+
+        .userpost {
+            width: 60%;
+            overflow-y: scroll;
+            height: 550px;
+            direction: rtl;
+            position: relative;
+        }
+
+        .userlist {
+            direction: ltr;
+            padding: 1rem;
+            border: 1px solid black;
+            width: 80%;
+            position: absolute;
+            right: 5%;
+            position: relative;
+        }
+
+        .forms {
+            display: flex;
+            justify-content: space-evenly;
+
+        }
+    </style>
 </head>
+
 <body>
-    <%- include('navbar') %> 
-    <h1>This is profile</h1>
-
-    <div class="userinfoupdate">
+    <%- include('navbar') %>
+        <h1>This is profile</h1>
 
 
+        <div class="user">
+            <center>
+            <div class="userinfoupdate">
+               
+                <h1>Password Update</h1>
+                <div class="updateinfo">
+                    <form action="">
+                        <input type="textarea" name="email" id="mail" value="username01" readonly> <br>
+                        <input type="textarea" name="email" id="mail" value="username01@gmail.com" readonly> <br>
+                        <input type="textarea" name="email" id="mail" value="Name"> <br>
+                        <input type="textarea" name="search" id="search" placeholder="Enter Password...."> <br>
+                        <input type="textarea" name="search" id="search" placeholder="Re - Enter Password...."> <br>
+                        <button class="signin">Update</button>
+                    </form>
+                </div>
+           
+            </div>
+        </center>
+            <div class="userpost">
+                <h1 style="text-align: left; margin-left: 3%;">All Post</h1>
+                <br>
+                <div class="userlist">
+
+                    <div class="">
+                        <h2> ₱ Price</h2>
+                        <h6 class="title">Name </h6>
+                        <div class="address">
+                            <p>Addresss </p>
+                        </div>
+                        <div class="forms">
+                            <form action="">
+                                <button>Update</button>
+                            </form>
+                            <form action="">
+                                <button>Delete</button>
+                            </form>
+
+                        </div>
+
+                    </div>
+                </div>
+                <br>
+                <div class="userlist">
+
+                    <div class="">
+                        <h2> ₱ Price</h2>
+                        <h6 class="title">Name </h6>
+                        <div class="address">
+                            <p>Addresss </p>
+                        </div>
+                        <div class="forms">
+                            <form action="">
+                                <button>Update</button>
+                            </form>
+                            <form action="">
+                                <button>Delete</button>
+                            </form>
+
+                        </div>
+
+                    </div>
+                </div>
+                <br>
+                <div class="userlist">
+
+                    <div class="">
+                        <h2> ₱ Price</h2>
+                        <h6 class="title">Name </h6>
+                        <div class="address">
+                            <p>Addresss </p>
+                        </div>
+                        <div class="forms">
+                            <form action="">
+                                <button>Update</button>
+                            </form>
+                            <form action="">
+                                <button>Delete</button>
+                            </form>
+
+                        </div>
+
+                    </div>
+                </div>
+                <br>
 
 
 
-    </div>
-    <div class="userpost">
 
-    </div>
-    
+
+
+
+            </div>
+
+        </div>
+
+
 </body>
+
 </html>
