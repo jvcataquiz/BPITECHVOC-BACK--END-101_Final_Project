@@ -12,8 +12,8 @@ app.use(express.static(path.join(__dirname, '/public')));
 //path for templating, this is for the pages
 app.set('views', path.join(__dirname, '/views'));
 
-
-const session = true;
+//session
+const session = false;
 
 //route for the homepage
 app.get('/', (req, res) => {
@@ -53,6 +53,16 @@ app.get('/profile', (req, res) => {
 
 })
 
+//post page
+app.get('/post', (req, res) => {
+    if (session) {
+        res.render('post', { session });
+    }
+    else {
+        res.redirect('/');
+    }
+
+})
 
 //this is the port where we can listen, port: 8080
 app.listen(8080, () => {
