@@ -232,3 +232,139 @@ font-weight: 700;
     display: flex;
     justify-content: space-between;
   }
+
+
+  /* start post ejs css */
+  .search {
+    display: none;
+}
+.upload{
+    display: flex;
+    justify-content: center;
+    line-height: 1.5;
+    
+  
+}
+.upimage img{
+    display: flex;
+    justify-content: center;
+    width:100%;
+   height: 200px;
+   object-fit: contain;
+}
+form{
+    width: 40%;
+}
+
+ /* end post ejs css */
+
+
+
+ /* start of profile ejs css */
+ .search {
+  display: none;
+}
+
+.user {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 3%;
+  position: relative;
+}
+.userinfoupdate{
+  margin-top: 3rem;
+}
+.updateinfo {
+  line-height: 2.5;
+}
+
+.updateinfo input {
+  font-size: 1.25rem;
+  margin: 0.75rem 0;
+}
+
+.userpost {
+  width: 60%;
+  overflow-y: scroll;
+  height: 550px;
+  direction: rtl;
+  position: relative;
+}
+
+.userlist {
+  direction: ltr;
+  padding: 1rem;
+  border: 1px solid black;
+  width: 80%;
+  position: absolute;
+  right: 5%;
+  position: relative;
+}
+
+.forms {
+  display: flex;
+  justify-content: space-evenly;
+
+}
+
+/* end of profile ejs .css */
+
+
+/* staart of rental ejs css */
+ .rental {
+        display: flex;
+        justify-content: space-around;
+        /* align-items: center; */
+        gap: 2rem;
+        margin: 0 3%;
+    }
+
+    .line {
+        line-height: 2.1;
+
+    }
+
+    .line p {
+        font-size: 1.15rem;
+    }
+
+    .back {
+        margin: 1rem 3%;
+    }
+
+    #map {
+        height: 540px;
+        /* The height is 400 pixels */
+        width: 60%;
+        /* The width is the width of the web page */
+    }
+
+    .search {
+        display: none;
+    }
+
+    .person-review {
+        text-indent: 10px;
+    }
+    .apartment-info{
+        overflow-y: scroll;
+
+    height: 540px;
+
+    }
+    .addreview form {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
+    .addreview button {
+        font-size: 1.25rem;
+    }
+
+    .addreview input {
+        width: 100%;
+        font-size: 1.25rem;
+    }
+
+/* end of rental css */

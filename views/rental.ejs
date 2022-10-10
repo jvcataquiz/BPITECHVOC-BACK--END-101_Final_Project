@@ -6,67 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
-    <script src="/jquery.js"></script>
+    <script src="/js/jquery.js"></script>
     <link rel="stylesheet" href="/style.css">
     <title>Rental Page</title>
 </head>
 <style>
-    .rental {
-        display: flex;
-        justify-content: space-around;
-        /* align-items: center; */
-        gap: 2rem;
-        margin: 0 3%;
-    }
-
-    .line {
-        line-height: 2.1;
-
-    }
-
-    .line p {
-        font-size: 1.15rem;
-    }
-
-    .back {
-        margin: 1rem 3%;
-    }
-
-    #map {
-        height: 540px;
-        /* The height is 400 pixels */
-        width: 60%;
-        /* The width is the width of the web page */
-    }
-
-    .search {
-        display: none;
-    }
-
-    .person-review {
-        text-indent: 10px;
-    }
-    .apartment-info{
-        overflow-y: scroll;
-
-    height: 540px;
-
-    }
-    .addreview form {
-        display: flex;
-        justify-content: space-between;
-        gap: 1rem;
-    }
-
-    .addreview button {
-        font-size: 1.25rem;
-    }
-
-    .addreview input {
-        width: 100%;
-        font-size: 1.25rem;
-    }
+   
 </style>
 
 <body>
@@ -89,7 +34,7 @@
                         <h1> Price </h1>
                         <h2 class="tit">Name</h2>
                         <div class="add">
-                            <p>Address </p>
+                            <p id="address"> <%=address%> </p>
                         </div>
                         <div class="des">
                             <strong>Description:</strong>
@@ -102,9 +47,9 @@
                             <p class="title reviews">150 Reviews</p>
 
 
-                            <input type="text" id="lat" value="<%=lat%>" hidden>
+                            <input type="text" id="lat" value="<%= lat %> " hidden>
 
-                            <input type="text" id="long" value="<%=long%>" hidden>
+                            <input type="text" id="long" value="<%= long %> " hidden>
                         </div>
                     </div>
                     <hr>
@@ -159,33 +104,8 @@
                 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
                 defer></script>
         </div>
-        <script type="text/javascript">
-
-            function initMap() {
-                var options = {
-                    zoom: 15,
-                    center: { lat: parseFloat(document.getElementById('lat').value), lng: parseFloat(document.getElementById('long').value) } //Coordinates of New York 
-                }
-                var loc = document.getElementById('map');
-                var map = new google.maps.Map(loc, options);
-                var marker = new google.maps.Marker({
-                    position: { lat: parseFloat(document.getElementById('lat').value), lng: parseFloat(document.getElementById('long').value) }, // Brooklyn Coordinates
-                    map: map, //Map that we need to add
-                    icon: 'https://img.icons8.com/fluent/48/000000/marker-storm.png',
-                    draggable: false,
-                    information: information
-                });
-
-                var information = new google.maps.InfoWindow({
-                    content: '<h4>Manila</h4>'
-                });
-
-                information.open(loc, marker);
-
-
-            }
-        </script>
+  
 
 </body>
-
+<script src="/js/rental.js"></script>
 </html>

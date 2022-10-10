@@ -14,6 +14,7 @@ app.set('views', path.join(__dirname, '/views'));
 
 //session
 const session = true;
+// fake id
 
 //route for the homepage
 app.get('/', (req, res) => {
@@ -25,19 +26,16 @@ app.get('/try', (req, res) => {
 })
 
 
-//route for the rental page
-app.get('/rental/:id', (req, res) => {
-    const { id } = req.params;
-    const lat = 14.5243;
-    const long = 121.0792;
-
-
-    res.render('rental', { session, id, lat, long });
-
-
+//route for the rental page // need id only to find the id from the database //
+app.get('/rental/:address/:lat/:long/:id', (req, res) => {
+   const{address, lat, long, id} = req.params;
+    res.render('rental',{ session, address, lat, long, id});
 })
 
-
+//added new apartment
+app.post('/rental', (req, res) => {
+    res.redirect('/profile');
+})
 
 //route for the profile page
 app.get('/profile', (req, res) => {
