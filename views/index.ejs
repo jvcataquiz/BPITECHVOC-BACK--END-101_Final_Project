@@ -30,23 +30,24 @@
                 </div>
                 <div class="description">
                     <h2> ₱ <%= post.price %> </h2>
-                    <h6 class="title"><%= post.name %> </h6>
+                    <h6 class="title"><%= post.fullname %> </h6>
                     <div class="address">
-                        <p><%= post.address %> </p>
+                        <p><%= post.address.slice(0, 50) %> ...</p>
                     </div>
                     <div class="short">
                         <strong>Description:</strong>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                            has been the industry's standard dummy text ever since the 150 </p>
+                        <p> <%= post.description.slice(0, 70) %> ... </p>
                     </div>
                     <div class="row">
-                        <p class="dateposted"><%= post.date %> </p>
-                        <p class="title reviews">150 Reviews</p>
+                        <p class="dateposted"><%= post.date.toLocaleDateString()%>  </p>
+                        <p class="title reviews"><%= post.comments.length %> Reviews </p>
                     </div>
                 </div>
                 <p>
                     
-                            <a href="/rental/<%= post.address%>/<%= post.lat%>/<%= post.long%>/<%= post.id%>"   id="view" >View</a>
+                            <a href="/rental/<%=post._id%>"   id="view" >View</a>
+
+                          
                           
    
             </div>

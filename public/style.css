@@ -326,6 +326,7 @@ font-weight: 700;
 
     .line p {
         font-size: 1.15rem;
+        word-break: break-word;
     }
 
     .back {
@@ -348,9 +349,9 @@ font-weight: 700;
     }
     .apartment-info{
         overflow-y: scroll;
-
     height: 540px;
-
+    width: 75%;
+background-color: aliceblue;
     }
     .addreview form {
         display: flex;
@@ -368,3 +369,15 @@ font-weight: 700;
     }
 
 /* end of rental css */
+
+.back a{
+ text-decoration: none;
+ color: #eff7fb;
+}
+.back a:hover{
+  color: rgb(238, 255, 0);
+}
+.fix-position{
+  display: flex;
+  justify-content: space-between;
+}

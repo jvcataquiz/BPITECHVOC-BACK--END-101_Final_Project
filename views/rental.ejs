@@ -8,13 +8,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="/js/jquery.js"></script>
     <link rel="stylesheet" href="/style.css">
-    <title>Rental Page</title>
+    <title><%= postresult.fullname %> </title>
 </head>
 <style>
    
 </style>
 
-<body>
+<body  class="bg-img">
     <%- include('navbar') %>
         <div class="back">
             <h2>
@@ -31,65 +31,65 @@
                 </div>
                 <div class="description ">
                     <div class="line">
-                        <h1> Price </h1>
-                        <h2 class="tit">Name</h2>
+                        <h1> <%= postresult.price %> </h1>
+                        <h2 class="tit"><%= postresult.fullname %> </h2>
                         <div class="add">
-                            <p id="address"> <%=address%> </p>
+                            <p id="address"> <%=postresult.address%> </p>
                         </div>
                         <div class="des">
                             <strong>Description:</strong>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                                Ipsum
-                                has been the industry's standard dummy text ever since the 150 </p>
+                            <p><%= postresult.description %> </p>
                         </div>
                         <div class="row">
-                            <p class="dateposted">Date </p>
-                            <p class="title reviews">150 Reviews</p>
+                            <p class="dateposted"><%= postresult.date.toLocaleDateString() %> </p>
+                            <p class="title reviews"><%= postresult.comments.length %> Reviews</p>
 
 
-                            <input type="text" id="lat" value="<%= lat %> " hidden>
+                            <input type="text" id="lat" value="<%= postresult.lat %> " hidden>
 
-                            <input type="text" id="long" value="<%= long %> " hidden>
+                            <input type="text" id="long" value="<%= postresult.long %> " hidden>
                         </div>
                     </div>
                     <hr>
                     <br>
                     <h3><strong>Reviews:</strong></h3>
+                    <% if(session) {%>
                     <div class="addreview">
-
-                        <% if(session) {%>
-                            <form action="">
+                            <form action="/comment/<%= postresult._id %> " method="post">
                                 <input type="texarea" name="review" id="review">
                                 <button>send</button>
                             </form>
-
-                            <% } %>
                     </div>
                     <br>
-                    <div class="commnets">
-
+                    <div class="commnets addreview">
+                        <% for(let comment of postresult.comments ){ %>
+                        <div class="fix-position">
                         <p class="person-review">
-                            What place?
+                            <strong> <%= comment.namecomment  %> : </strong> 
+                                  <%= comment.commentreview  %> 
                         </p>
-                        <hr>
-                        <p class="person-review">
-                            What place?
-                        </p>
-                        <hr>
-                        <p class="person-review">
-                            What place?
-                        </p>
-                        <hr>
-                        <p class="person-review">
-                            What place?
-                        </p>
-                        <hr>
-
-
-                        <br>
-
-
+                        <% if(comment.commentid == user_id ) {%>
+                        <form action="">
+                            <button>Delete</button>
+                        </form>
+                        <% } %>
                     </div>
+                        <hr>
+                        <% } %>
+                        <br>
+                    </div>
+                    <% } else{ %>
+
+                        <% for(let comment of postresult.comments ){ %>
+                            <p class="person-review">
+                                <strong> <%= comment.namecomment  %> : </strong> 
+                                      <%= comment.commentreview  %> 
+                            </p>
+                            <hr>
+                            <% } %>
+                            <br>
+
+                    <% } %>
                 </div>
                 <p>
 

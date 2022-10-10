@@ -24,8 +24,8 @@
             <% if(!session) {%>
                 <div class="signindiv">
                     <form action="/signin" method="post">
-                        <input type="email" name="sign_email" id="email" placeholder="Enter Email...">
-                        <input type="password" name="sign_pwd" id="search" placeholder="Enter Password....">
+                        <input type="email" name="sign_email" id="email" placeholder="Enter Email..." required>
+                        <input type="password" name="sign_pwd" id="search" placeholder="Enter Password...." required>
                         <button class="signin">Sign in</button>
                     </form>
                 </div>
@@ -34,9 +34,13 @@
 
 
                 <% } else{ %>
+                    
                     <a href="/post">Post</a>
                     <a href="/profile">Profile</a>
-                    <button class="logout">Log out</button>
+                    <form action="/logout" method="post">
+                        <button class="logout">Log out</button>
+                    </form>
+                    
                     <% } %>
         </div>
     </div>

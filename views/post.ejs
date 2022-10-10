@@ -11,7 +11,7 @@
     <title>Name of Profile</title>
 </head>
 
-<body>
+<body  class="bg-img">
     <%- include('navbar') %>
         <h1>This is Post</h1>
      
@@ -22,11 +22,14 @@
                 </div>
                 <br>
                 <label for="image">Upload Image:</label><br>
-                <input type="file" id="image" name="image"  accept="image/*" onchange="loadFile(event)" required> <br>
+                <input type="file" id="image" name="rentalImage"  accept="image/*" onchange="loadFile(event)" required> <br>
+                <label for="fullname">Address:</label><br>
+                <input id="fullname" name="fullname"type="text" placeholder="Enter name here" value="<%= result.fullname %> " required/><br>
                 <label for="price">Price:</label><br>
                 <input type="number" id="price" name="price" required min="0"><br>
                 <label for="description">Description:</label><br>
                 <input type="textarea" id="description" name="description" required max="150"><br>
+
                 <label for="address">Address:</label><br>
                 <input id="address" name="address"type="text" placeholder="Enter address here" required/><br>
                 <label for="latitude">Latitude:</label><br>

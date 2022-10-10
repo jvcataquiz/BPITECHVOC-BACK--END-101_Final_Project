@@ -26,9 +26,9 @@
                 <h1>Password Update</h1>
                 <div class="updateinfo">
                     <form action="">
-                        <input type="textarea" name="email" id="mail" value="<%=  user_id %> " readonly> <br>
-                        <input type="textarea" name="email" id="mail" value="username01@gmail.com" readonly> <br>
-                        <input type="textarea" name="email" id="mail" value="Name"> <br>
+                        <input type="textarea" name="email" id="mail"  readonly> <br>
+                        <input type="textarea" name="email" id="mail" value="<%= result.email %> " readonly> <br>
+                        <input type="textarea" name="email" id="mail" value="<%= result.fullname %> "> <br>
                         <input type="textarea" name="search" id="search" placeholder="Enter Password...."> <br>
                         <input type="textarea" name="search" id="search" placeholder="Re - Enter Password...."> <br>
                         <button class="signin">Update</button>
