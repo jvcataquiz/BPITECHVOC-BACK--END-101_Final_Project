@@ -23,9 +23,9 @@
         <div class="signform">
             <% if(!session) {%>
                 <div class="signindiv">
-                    <form action="">
-                        <input type="textarea" name="email" id="mail" placeholder="Enter Email...">
-                        <input type="textarea" name="search" id="search" placeholder="Enter Password....">
+                    <form action="/signin" method="post">
+                        <input type="email" name="sign_email" id="email" placeholder="Enter Email...">
+                        <input type="password" name="sign_pwd" id="search" placeholder="Enter Password....">
                         <button class="signin">Sign in</button>
                     </form>
                 </div>
@@ -45,11 +45,17 @@
 <div id="signupcontent">
     <br>
     <h2 style="text-align: left; color: white;">Sign up</h2>
-    <form action="">
-        <input type="textarea" name="email" id="mail" placeholder="Enter Fullname"> <br>
-        <input type="textarea" name="email" id="mail" placeholder="Enter Email..."> <br>
-        <input type="textarea" name="search" id="search" placeholder="Enter Password...."> <br>
-        <input type="textarea" name="search" id="search" placeholder="Re - Enter Password...."> <br>
-        <button class="signin">Sign up</button>
+    <form action="/signup" method="post">
+        <input type="textarea" name="fullname" id="fullname" placeholder="Enter Fullname" required> <br>
+        <input type="email" name="email" id="email" placeholder="Enter Email..." required> <br>
+        <input type="password" onchange="myFunction()" name="pwd" id="pwd" minlength="6" maxlength="12" placeholder="Enter Password...." required> <br>
+        <input type="password" onchange="myFunction()" name="repwd" id="repwd" minlength="6" maxlength="12" placeholder="Re - Enter Password...." required> <br>
+        <button class="signin" >Sign up</button>
+
     </form>
+
 </div>
+
+<script>
+   
+</script>
