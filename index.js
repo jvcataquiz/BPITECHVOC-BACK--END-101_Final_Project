@@ -6,16 +6,18 @@ const Signup = require('./models/Signup')
 const RentalPost = require('./models/Rentals')
 const multer = require('multer');
 
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
+
+app.use('/uploads', express.static('uploads'));
+
+const filestorage = multer.diskStorage({
+    destination: (req, file, cb) => {
         cb(null, './uploads/');
     },
-    filename: function (req, file, cb) {
-        cb(null, new Date().toISOString + file.originalname);
+    filename: (req, file, cb) =>  {
+        cb(null, Date.now() +'__' + file.originalname.toLowerCase());
     }
 })
-
-const upload = multer({ storage: storage })
+const upload = multer({ storage:filestorage, limits: { fieldSize: 10 * 1024 * 1024 } });
 
 //to deserialize json
 app.use(express.json());
@@ -61,8 +63,12 @@ let user_fullname;
 
 function monitoring(name_route, route_redirect, res) {
     if (session) {
-        Signup.findById(user_id).then(result => {
-            res.render(name_route, { session, result });
+
+       const result=  Signup.findById(user_id).then(result => {
+        RentalPost.find({user_postid: user_id}).then(datas=> {
+            res.render(name_route, { session, result, datas });
+        })
+           
         })
     }
     else {
@@ -74,13 +80,16 @@ function monitoring(name_route, route_redirect, res) {
 //route for the homepage
 app.get('/', async (req, res) => {
     const file = await RentalPost.find({})
-    res.render('index', { session, file, user_id });
+    const result=  await Signup.findById(user_id);
+    console.log(file.rentalImage);
+    res.render('index', { session, file, result, user_id});
 
 })
 
 
 //added new user (Sign up form)
 app.post('/signup', async (req, res) => {
+    try{
     const { fullname, email, pwd } = req.body;
     const result = await Signup.findOne({ email: email })
     if (result === null) {
@@ -104,6 +113,10 @@ app.post('/signup', async (req, res) => {
     else {
         res.send("Email Data Found")
     }
+}
+catch (e) {
+   res.send("404");
+}
 })
 
 
@@ -134,16 +147,17 @@ app.post('/logout', (req, res) => {
 
 
 //added new apartment // image not working right now
-app.post('/rental', upload.single('rentalImage'), (req, res) => {
-    const { rentalImage, fullname, price, description, address, lat, long } = req.body;
+app.post('/rental',upload.single("rentalImage"),(req, res) => {
+    const { fullname, price, description, address, lat, long } = req.body;
     const newpost = new RentalPost({
-        rentalImage: rentalImage,
+        rentalImage: req.file.path,
         fullname: fullname,
         price: price,
         description: description,
         address: address,
         lat: lat,
-        long: long
+        long: long,
+        user_postid: user_id
     });
     newpost.save()
         .then(data => {
@@ -155,7 +169,8 @@ app.post('/rental', upload.single('rentalImage'), (req, res) => {
             console.log("Failed to enter new user");
             console.log(err);
         })
-
+    
+    
 
 })
 
@@ -165,15 +180,20 @@ app.post('/rental', upload.single('rentalImage'), (req, res) => {
 
 //route for the rental page // need id only to find the id from the database //
 app.get('/rental/:post_id', async (req, res) => {
-    const { post_id } = req.params;
-    const postresult = await RentalPost.findById(post_id);
-    res.render('rental', { session, postresult, user_id});
-
-
+    try {
+        const { post_id } = req.params;
+        const postresult = await RentalPost.findById(post_id);
+        console.log(postresult);
+        res.render('rental', { session, postresult, user_id});
+    }
+    catch (e) {
+       res.send("404");
+    }
 })
 
 //comment in review
 app.post('/comment/:post_id', async (req, res) => {
+    try {
     const { post_id } = req.params;
     const {review} = req.body;
     const commentresult = await Signup.findById(user_id);
@@ -186,6 +206,10 @@ app.post('/comment/:post_id', async (req, res) => {
      
      postresult.save().then
      res.render('rental', { session, postresult, user_id});
+    }
+    catch (e) {
+       res.send("404");
+    }
 })
 
 
@@ -196,12 +220,15 @@ app.get('/profile', (req, res) => {
 })
 
 
+
 //post page 
 app.get('/post', (req, res) => {
     monitoring('post', '/', res)
 })
 
-
+app.get('*', (req, res)=>{
+    res.redirect('/');
+   })
 
 //this is the port where we can listen, port: 8080
 app.listen(8080, () => {

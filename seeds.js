@@ -13,7 +13,7 @@ mongoose.connect('mongodb://localhost:27017/test')
 
 // 
 const seedRentals = [{
-    rentalImage: "test.png",
+    rentalImage: "1665470885275__Capture.PNG",
     fullname: "Joshua Garcia",
     price: 2000,
     description:"Near in BGC, near all transpostation",
@@ -35,7 +35,7 @@ const seedRentals = [{
 }
 ,
 {
-    rentalImage: "test.png",
+    rentalImage: "1665470885275__Capture.PNG",
     fullname: "Justin Bieber",
     price: 12000,
     description:"Near in BGC, near all transpostation",

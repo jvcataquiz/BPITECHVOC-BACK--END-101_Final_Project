@@ -16,13 +16,13 @@
         <h1>This is Post</h1>
      
         <div class="upload">
-            <form action="/rental" method="post">
+            <form action="/rental" method="post" enctype="multipart/form-data">
                 <div class="upimage">
                     <p><img id="output" src="https://th.bing.com/th/id/R.66754ec538a650d7f0058a92dfa87c2c?rik=zxjjfdK4GJNkbg&riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fimg_234957.png&ehk=Fi1SrQ6CCna9G4YthIa%2fPeLqp2EuDeiIUU7VEihDa1E%3d&risl=&pid=ImgRaw&r=0"/></p>
                 </div>
                 <br>
-                <label for="image">Upload Image:</label><br>
-                <input type="file" id="image" name="rentalImage"  accept="image/*" onchange="loadFile(event)" required> <br>
+                <label for="rentalImage">Upload Image:</label><br>
+                <input type="file" id="rentalImage" name="rentalImage"  accept="image/png, image/gif, image/jpeg" onchange="loadFile(event)" required> <br>
                 <label for="fullname">Address:</label><br>
                 <input id="fullname" name="fullname"type="text" placeholder="Enter name here" value="<%= result.fullname %> " required/><br>
                 <label for="price">Price:</label><br>

@@ -14,7 +14,7 @@
     </style>
 </head>
 
-<body>
+<body  class="bg-img">
     <%- include('navbar') %>
         <h1>This is profile</h1>
 
@@ -40,15 +40,24 @@
             <div class="userpost">
                 <h1 style="text-align: left; margin-left: 3%;">All Post</h1>
                 <br>
+                <% if(datas != 0 ){ %>
+                <% for(let data of datas){ %>
                 <div class="userlist">
 
                     <div class="">
-                        <h2> ₱ Price</h2>
-                        <h6 class="title">Name </h6>
+                        <h2> ₱ <%= data.price %> </h2>
+                        <h6 class="title"><%= data.fullname %> </h6>
                         <div class="address">
-                            <p>Addresss </p>
+                            <p><%= data.address%> </p>
+                        </div>
+                        <div class="row">
+                            <p class="dateposted"><%= data.date.toLocaleDateString() %> </p>
+                            <p class="title reviews"><%= data.comments.length %> Reviews</p>
+
                         </div>
                         <div class="forms">
+                           
+                            <a href="/rental/<%= data._id %>"> View</a>
                             <form action="">
                                 <button>Update</button>
                             </form>
@@ -61,49 +70,9 @@
                     </div>
                 </div>
                 <br>
-                <div class="userlist">
-
-                    <div class="">
-                        <h2> ₱ Price</h2>
-                        <h6 class="title">Name </h6>
-                        <div class="address">
-                            <p>Addresss </p>
-                        </div>
-                        <div class="forms">
-                            <form action="">
-                                <button>Update</button>
-                            </form>
-                            <form action="">
-                                <button>Delete</button>
-                            </form>
-
-                        </div>
-
-                    </div>
-                </div>
-                <br>
-                <div class="userlist">
-
-                    <div class="">
-                        <h2> ₱ Price</h2>
-                        <h6 class="title">Name </h6>
-                        <div class="address">
-                            <p>Addresss </p>
-                        </div>
-                        <div class="forms">
-                            <form action="">
-                                <button>Update</button>
-                            </form>
-                            <form action="">
-                                <button>Delete</button>
-                            </form>
-
-                        </div>
-
-                    </div>
-                </div>
-                <br>
-
+                <% }}else{ %>
+                    <h2>No Records</h2>
+                    <% } %>
 
 
 

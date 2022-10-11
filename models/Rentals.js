@@ -34,6 +34,10 @@ const rentalPostSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
+    user_postid: {
+        type: String,
+        require: true
+    },
     comments: [{
         commentid: {type:String},
         commentreview : {type:String},
