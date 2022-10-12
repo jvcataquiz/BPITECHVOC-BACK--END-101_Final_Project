@@ -126,7 +126,7 @@ nav {
 
 
 .bg-img {
-    background-image: url("/img/br.jpg");
+    background-image: url("https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
   
     min-height: 540px;
     background-position: center;
@@ -135,7 +135,13 @@ nav {
     position: relative;
   }
 
-
+  .bg-notfound {
+    background-image: url("https://images.pexels.com/photos/1103970/pexels-photo-1103970.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
 
   .posting{
     margin: 1rem 3%;
@@ -172,7 +178,7 @@ nav {
     position: relative;
     }
   .title {
-    color: grey;
+    color: rgb(255, 1, 1);
     font-size: 18px;
     margin-bottom: 1rem;
   }
@@ -341,7 +347,7 @@ font-weight: 700;
     }
 
     #map {
-        height: 540px;
+        height: 480px;
         /* The height is 400 pixels */
         width: 60%;
         /* The width is the width of the web page */
@@ -356,7 +362,7 @@ font-weight: 700;
     }
     .apartment-info{
         overflow-y: scroll;
-    height: 540px;
+    height: 480px;
     width: 75%;
 background-color: aliceblue;
     }
@@ -388,3 +394,24 @@ background-color: aliceblue;
   display: flex;
   justify-content: space-between;
 }
+
+footer{
+
+  padding: 1rem 0;
+  background-color: #a7d6b8;
+
+ 
+}
+footer h1{
+  color: red;
+  font-weight: 800;
+}
+footer span {
+ color: blue;
+ font-weight: 800;
+}
+
+.card img, .img img{
+  width: 100%;
+  height: 9rem;
+ }

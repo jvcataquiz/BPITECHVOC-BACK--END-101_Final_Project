@@ -10,41 +10,49 @@
     <link rel="stylesheet" href="/style.css">
     <title>Name of Profile</title>
     <style>
-     
+    label{
+        text-align: left;
+    }
     </style>
 </head>
 
-<body  class="bg-img">
+<body style="background-color: #a7d6b8;">
     <%- include('navbar') %>
-        <h1>This is profile</h1>
+    <h1 style="margin-left: 5%; margin-top: 1rem;">Profile Page:</h1>
 
 
         <div class="user">
-            <center>
+           
             <div class="userinfoupdate">
                
                 <h1>Password Update</h1>
                 <div class="updateinfo">
-                    <form action="">
-                        <input type="textarea" name="email" id="mail"  readonly> <br>
-                        <input type="textarea" name="email" id="mail" value="<%= result.email %> " readonly> <br>
-                        <input type="textarea" name="email" id="mail" value="<%= result.fullname %> "> <br>
-                        <input type="textarea" name="search" id="search" placeholder="Enter Password...."> <br>
-                        <input type="textarea" name="search" id="search" placeholder="Re - Enter Password...."> <br>
+                    <form action="/update-user/<%= result._id%>?_method=PATCH" method="post">
+                        <label for="email">Email:</label><br>
+                        <input type="textarea" name="email" id="mail" value="<%= result.email%>" readonly> <br>
+                        <label for="fullname">Fullname: </label><br>
+                        <input type="textarea" name="fullname" id="mail" value="<%=result.fullname%>"> <br>
+                        <label for="pwd">Password: </label><br>
+                        <input type="textarea" name="pwd" id="search" placeholder="Enter Password...." value="<%=result.pwd%>"> <br>
+                     
                         <button class="signin">Update</button>
                     </form>
                 </div>
            
             </div>
-        </center>
+      
             <div class="userpost">
                 <h1 style="text-align: left; margin-left: 3%;">All Post</h1>
                 <br>
                 <% if(datas != 0 ){ %>
-                <% for(let data of datas){ %>
+                <% for(let data of datas.sort().reverse()){ %>
                 <div class="userlist">
 
                     <div class="">
+                        <div class="img">
+                            <img src="<%=data.rentalImage%>" alt="">
+                            </div>
+                            <br>
                         <h2> ₱ <%= data.price %> </h2>
                         <h6 class="title"><%= data.fullname %> </h6>
                         <div class="address">
@@ -58,10 +66,10 @@
                         <div class="forms">
                            
                             <a href="/rental/<%= data._id %>"> View</a>
-                            <form action="">
-                                <button>Update</button>
-                            </form>
-                            <form action="">
+                            <a href="/updaterental/<%=data._id%>"><%=data._id%></a>
+
+
+                            <form action="/rental/<%= data._id%>?_method=DELETE" method="post">
                                 <button>Delete</button>
                             </form>
 
@@ -83,7 +91,7 @@
 
         </div>
 
-
+        <%- include('footer') %> 
 </body>
 
 </html>

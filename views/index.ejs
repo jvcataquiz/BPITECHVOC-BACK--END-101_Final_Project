@@ -8,14 +8,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="/js/jquery.js"></script>
     <link rel="stylesheet" href="/style.css">
+ 
     <title>Landing Page</title>
 </head>
-<style>
-.card img{
-    width: 100%;
-    height: 9rem;
-   }
-</style>
+
 
 <body class="bg-img">
     <%- include('navbar') %> 
@@ -30,11 +26,11 @@
     <!-- maincontent -->
     <div class="posting">
       
-        <% for(let post of file){ %>
+        <% for(let post of file.sort().reverse()){ %>
 
             <div class="card">
                 <div class="img">
- <img src="<%=post.rentalImage%>" alt="">
+                <img src="<%=post.rentalImage%>" alt="">
                 </div>
                 <br>
                 <div class="description">
@@ -75,7 +71,7 @@
     </div>
 
 
-
+    <%- include('footer') %> 
 </body>
 
 <script>

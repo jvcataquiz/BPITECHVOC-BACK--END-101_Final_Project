@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/js/jquery.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <title>Name of Profile</title>
+</head>
+
+<body   style="background-color: #a7d6b8;">
+    <%- include('navbar') %>
+        <h1 style="margin-left: 10%; margin-top: 1rem;">Update Post:</h1>
+     <p><%=output._id %></p>
+        <div class="upload">
+            <form action="/updateinfo/<%=output._id%>?_method=PUT" method="post" enctype="multipart/form-data">
+                <div class="upimage">
+                    <p><img id="output" src="/<%=output.rentalImage %>"/></p>
+                </div>
+                <br>
+                <label for="rentalImage">Upload Image:</label><br>
+                <input type="file" id="rentalImage" name="rentalImage"  accept="image/png, image/gif, image/jpeg" onchange="loadFile(event)" > <br>
+                <label for="fullname">Fullname:</label><br>
+                <input id="fullname" name="postid"type="text" hidden placeholder="Enter name here" value="<%=output._id%>"/><br>
+                <input id="fullname" name="fullname"type="text" readonly placeholder="Enter name here" value="<%=output.fullname%> "/><br>
+                <label for="price">Price:</label><br>
+                <input type="text" id="price" name="price" required min="0" value="<%=parseInt(output.price)%> "><br>
+                <label for="description">Description:</label><br>
+                <input type="textarea" id="description" name="description" required max="150" value="<%=output.description%>"><br>
+
+                <label for="address">Address:</label><br>
+                <input id="address" name="address"type="text" placeholder="Enter address here" value="<%= output.address%>"required/><br>
+                <label for="latitude">Latitude:</label><br>
+                    <input type="text" id="latitude" name="lat" value="<%=output.lat%>" readonly  required/><br>
+
+                <label for="longitude">Longitude:</label><br>
+               
+                    <input type="text" name="long"id="longitude" value="<%=output.long%>" readonly required/><br>
+                <button>Submit</button>
+              </form>
+        </div>
+
+        <%- include('footer') %> 
+</body>
+
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&libraries=places"></script>
+<script src="/js/post.js"></script>
+
+</html>

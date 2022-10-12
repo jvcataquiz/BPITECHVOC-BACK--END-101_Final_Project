@@ -11,9 +11,9 @@
     <title>Name of Profile</title>
 </head>
 
-<body  class="bg-img">
+<body   style="background-color: #a7d6b8;">
     <%- include('navbar') %>
-        <h1>This is Post</h1>
+        <h1 style="margin-left: 10%; margin-top: 1rem;">Create New Post:</h1>
      
         <div class="upload">
             <form action="/rental" method="post" enctype="multipart/form-data">
@@ -23,8 +23,8 @@
                 <br>
                 <label for="rentalImage">Upload Image:</label><br>
                 <input type="file" id="rentalImage" name="rentalImage"  accept="image/png, image/gif, image/jpeg" onchange="loadFile(event)" required> <br>
-                <label for="fullname">Address:</label><br>
-                <input id="fullname" name="fullname"type="text" placeholder="Enter name here" value="<%= result.fullname %> " required/><br>
+                <label for="fullname">Fullname:</label><br>
+                <input id="fullname" name="fullname"type="text" readonly placeholder="Enter name here" value="<%= result.fullname %> "/><br>
                 <label for="price">Price:</label><br>
                 <input type="number" id="price" name="price" required min="0"><br>
                 <label for="description">Description:</label><br>
@@ -33,16 +33,16 @@
                 <label for="address">Address:</label><br>
                 <input id="address" name="address"type="text" placeholder="Enter address here" required/><br>
                 <label for="latitude">Latitude:</label><br>
-                    <input type="text" id="latitude" name="lat" readonly /><br>
+                    <input type="text" id="latitude" name="lat" readonly  required/><br>
 
                 <label for="longitude">Longitude:</label><br>
                
-                    <input type="text" name="long"id="longitude" readonly /><br>
+                    <input type="text" name="long"id="longitude" readonly required/><br>
                 <button>Submit</button>
               </form>
         </div>
 
-    
+        <%- include('footer') %> 
 </body>
 
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&libraries=places"></script>
